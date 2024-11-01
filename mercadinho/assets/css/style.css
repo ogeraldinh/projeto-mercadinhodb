@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
 }
 
@@ -12,6 +12,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
+
+}
+
+::-webkit-scrollbar {
+    background-color: #bdbdbd72;
+    width: 15px;
+    height: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #aeaeae;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #949494;
 }
 
 nav {
@@ -21,27 +38,33 @@ nav {
     padding: 20px;
     width: 100%;
     background-color: #c0c0c0;
+
 }
 
 nav h1 {
-    margin: 0 30px;
+    margin: 0 40px;
 }
 
 nav ul {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 0 5px;
+    margin: 0px;
 }
 
 nav li {
     list-style: none;
-    margin: 0 25px;
+    margin: 0 30px;
 
 }
+
 nav a {
     color: #000;
     text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }
 
 .content {
@@ -52,9 +75,65 @@ nav a {
     margin: 0;
     padding: 0;
 }
+
 section {
     width: 900px;
     margin: 40px;
     text-align: justify;
+
+}
+
+form {
+    width: 700px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 150px;
+    padding: 50px;
+    background-color: #c0c0c0;
+    gap: 0px;
+}
+
+.input-form {
+    display: flex;
+    align-self: flex-start;
+    width: 100%;
+    padding: 30px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+form input {
+    border: none;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #000;
+    background-color: transparent;
+
+}
+
+form input:focus {
+    outline: none;
+}
+
+.form-btn {
+    display: flex;
+    align-items: center;
     
+}
+.form-btn button {
+    width: 100px;
+    padding: 5px;
+    background-color: #fff;
+    margin: 10px 0;
+    font-size: 1em;
+
+}
+
+.form-btn button:hover {
+    
+    background-color: #949494;
 }
