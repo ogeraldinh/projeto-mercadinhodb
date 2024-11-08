@@ -30,7 +30,7 @@
 
             
     </div>
-    <a href="login.php" id="sair">Sair do menu</a>
+    <a href="sair.php" id="sair">Sair do menu</a>
     
 
 </body>
