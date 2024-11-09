@@ -13,9 +13,9 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id_produto = $_POST['id_produto'];
         $quantidade = $_POST['quantidade'];
-        $operacao = $_POST['operacao']; // 'adicionar' ou 'subtrair'
+        $operacao = $_POST['operacao']; // adicionar ou subtrair
         
-        // Verificar se a quantidade fornecida é válida
+        // Verificar se a quantidade é válida
         if ($quantidade > 0) {
             if ($operacao == 'adicionar') {
                 // Adicionar ao estoque
@@ -49,7 +49,10 @@
     }
 
     // Exibição dos produtos
-    $sql = "SELECT * FROM produto ORDER BY nome_produto";
+    $sql = "SELECT produto.id_produto, produto.nome_produto, produto.estoque, fornecedor.nome 
+    FROM produto
+    JOIN fornecedor ON produto.id_fornecedor = fornecedor.id_fornecedor
+    ORDER BY produto.nome_produto";
     $result = $conexao->query($sql);
 ?>
 
@@ -81,7 +84,7 @@
                     echo "<td>".$user_data['id_produto']."</td>";
                     echo "<td>".$user_data['nome_produto']."</td>";
                     echo "<td>".$user_data['estoque']."</td>";
-                    echo "<td>".$user_data['id_fornecedor']."</td>";
+                    echo "<td>".$user_data['nome']."</td>";
                     echo "<td>
                         <form action='' method='POST'>
                             <input type='hidden' name='id_produto' value='".$user_data['id_produto']."'>
@@ -97,5 +100,6 @@
     </table>
 
     <a href="index.php"><button>Voltar ao Menu</button></a>
+    <a href="estoque.php"><button>Voltar ao estoque</button></a>
 </body>
 </html>
