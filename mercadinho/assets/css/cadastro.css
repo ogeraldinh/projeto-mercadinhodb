@@ -66,9 +66,18 @@ form {
 form input:focus {
     outline: none;
 }
-input#submit {
+.submit button {
     font-size: 1em;
     padding: 0 20px;
     margin-bottom: 20px;
     
 }
+.btn-back button {
+    padding: 5px;
+    background-color: #fff;
+    margin: 10px 0;
+    font-size: 1em;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+

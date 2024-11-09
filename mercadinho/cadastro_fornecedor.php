@@ -44,35 +44,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/estoque.css">
+    <link rel="stylesheet" href="assets/css/cadastro.css">
     <title>Cadastro de Fornecedor</title>
 </head>
 <body>
-    <form action="" method="post">
-        <h1>Cadastro de Fornecedor</h1>
 
+    <nav>
+        <h1>Cadastro de Fornecedor</h1>
+    </nav>
+
+    <form action="" method="post" class>
+    <div class="input-form">
         <label for="nome_fornecedor">Nome do Fornecedor:</label>
         <input type="text" id="nome_fornecedor" name="nome_fornecedor" value="<?= $nome_fornecedor ?>" required>
-
         <label for="endereco">Endereço:</label>
         <input type="text" id="endereco" name="endereco" required>
-
         <label for="cnpj">CNPJ:</label>
         <input type="text" id="cnpj" name="cnpj" required>
-
-        <div class="form-btn">
-            <button type="submit">Cadastrar Fornecedor</button>
+    </div>
+    <div class="submit">
+        <button type="submit">Cadastrar Fornecedor</button>
+    </div>
+    <?php if (isset($message)): ?>
+        <div class="message" style="text-align: center; color: <?= strpos($message, 'Erro') === false ? 'green' : 'red'; ?>;">
+            <?= $message; ?>
         </div>
-
-        <?php if (isset($message)): ?>
-            <div class="message" style="text-align: center; color: <?= strpos($message, 'Erro') === false ? 'green' : 'red'; ?>;">
-                <?= $message; ?>
-            </div>
-        <?php endif; ?>
+    <?php endif; ?>
+        
     </form>
 
-    <a href="index.php"><button>Voltar ao Menu</button></a>
-    <a href="estoque.php"><button>Voltar ao Estoque</button></a>
-    <a href="fornecedores.php"><button>Voltar aos Fornecedores</button></a>
+
+    <div class="btn-back">
+        <a href="index.php"><button>Voltar ao Menu</button></a>
+        <a href="estoque.php"><button>Voltar ao Estoque</button></a>
+        <a href="fornecedores.php"><button>Voltar aos Fornecedores</button></a>
+    </div>
+
+
 </body>
 </html>

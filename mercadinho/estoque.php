@@ -36,7 +36,14 @@
     </script>
 </head>
 <body>
-    <h1>Estoque</h1>
+    <nav>
+        <h1>Estoque</h1>
+    </nav>
+
+    <div class="btn-options">
+        <a href="index.php"><button>Voltar ao Menu</button></a>
+        <a href="adicionar_produto.php"><button>Adicionar Produto</button></a>
+    </div>
 
     <table>
         <thead>
@@ -70,8 +77,7 @@
 
 
 
-    <a href="index.php"><button>Voltar ao Menu</button></a>
-    <a href="adicionar_produto.php"><button>adicionar produto</button></a>
+
     
 </body>
 </html>

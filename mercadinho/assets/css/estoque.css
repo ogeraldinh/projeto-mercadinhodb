@@ -15,7 +15,18 @@ body {
 
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    background-color: #c0c0c0;
+
+}
+
 table {
+    margin: 20px;
     align-items: center;
     flex-direction: column;
     justify-content: flex-start;
@@ -23,8 +34,34 @@ table {
     border: 1px solid black;
 }
 
-th, td {
-    text-align: end;
-    border: 1px solid black;
+th {
+    text-align: center;
+    background-color: #c0c0c0;
     padding: 0 10px;
+}
+
+td {
+    text-align: center  ;
+}
+
+.btn-options {
+    width: 400px;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.btn-options button {
+    padding: 5px;
+    background-color: #fff;
+    margin: 10px 0;
+    font-size: 1em;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.btn-options button:hover {
+    background-color: #c0c0c0;
 }

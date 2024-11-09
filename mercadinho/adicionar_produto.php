@@ -57,12 +57,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/estoque.css">
+    <link rel="stylesheet" href="assets/css/cadastro.css">
     <title>Adicionar Produto</title>
 </head>
 <body>
-    <form action="" method="post">
+
+    <nav>
         <h1>Adicionar Produto</h1>
+    </nav>
+
+    <form action="" method="post">
         <div class="input-form">
             <label for="nome_produto">Nome do Produto:</label>
             <input type="text" id="nome_produto" name="nome_produto" required>
@@ -74,7 +78,7 @@
             <input type="text" id="nome_fornecedor" name="nome_fornecedor" required>
         </div>
 
-        <div class="form-btn">
+        <div class="submit">
             <button type="submit">Enviar</button>
         </div>
 
@@ -85,6 +89,6 @@
         <?php endif; ?>
     </form>
 
-    <a href="estoque.php"><button>Voltar ao estoque</button></a>
+    <a href="estoque.php" class="btn-back"><button >Voltar ao estoque</button></a>
 </body>
 </html>

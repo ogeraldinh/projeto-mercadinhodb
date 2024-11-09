@@ -65,7 +65,14 @@
     <title>Estoque</title>
 </head>
 <body>
-    <h1>Estoque</h1>
+    <nav>
+        <h1>Estoque</h1>
+    </nav>
+
+    <div class="btn-options">
+        <a href="index.php"><button>Voltar ao Menu</button></a>
+        <a href="estoque.php"><button>Voltar ao estoque</button></a>
+    </div>
 
     <table>
         <thead>
@@ -99,7 +106,5 @@
         </tbody>
     </table>
 
-    <a href="index.php"><button>Voltar ao Menu</button></a>
-    <a href="estoque.php"><button>Voltar ao estoque</button></a>
 </body>
 </html>

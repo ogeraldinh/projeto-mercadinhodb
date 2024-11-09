@@ -11,7 +11,7 @@
     }
 
     // Exibir a lista de fornecedores
-    $sql = "SELECT id_fornecedor, nome, endereco, cnpj FROM fornecedor ORDER BY nome";
+    $sql = "SELECT * FROM fornecedor ORDER BY nome";
     $result = $conexao->query($sql);
 
 ?>
@@ -33,7 +33,14 @@
     </script>
 </head>
 <body>
-    <h1>Fornecedores</h1>
+    <nav>
+        <h1>Fornecedores</h1>
+    </nav>
+
+    <div class="btn-options">
+        <a href="index.php"><button>Voltar ao Menu</button></a>
+        <a href="cadastro_fornecedor.php"><button>Cadastrar fornecedor</button></a>
+    </div>
     <table>
         <thead>
             <tr>
@@ -62,8 +69,7 @@
             ?>
         </tbody>
     </table>
-    <a href="index.php"><button>Voltar ao Menu</button></a>
-    <a href="cadastro_fornecedor.php"><button>Cadastrar fornecedor</button></a>
+
     
 </body>
 </html>
