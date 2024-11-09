@@ -63,5 +63,7 @@
         </tbody>
     </table>
     <a href="index.php"><button>Voltar ao Menu</button></a>
+    <a href="cadastro_fornecedor.php"><button>Cadastrar fornecedor</button></a>
+    
 </body>
 </html>
