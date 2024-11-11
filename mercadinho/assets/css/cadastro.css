@@ -44,6 +44,10 @@ form {
     background-color: #c0c0c0;
 }
 
+#vendas {
+    margin-top: 30px;
+}
+
 .input-form {
     display: flex;
     align-self: flex-start;

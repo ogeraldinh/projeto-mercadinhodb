@@ -69,7 +69,7 @@ $clientes_result = $conexao->query("SELECT cliente_id, nome FROM cliente");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/divida.css">
+    <link rel="stylesheet" href="assets/css/cadastro.css">
     <title>Adicionar ou Atualizar Dívida</title>
 </head>
 <body>
@@ -81,25 +81,26 @@ $clientes_result = $conexao->query("SELECT cliente_id, nome FROM cliente");
         <?= $message; ?>
     </div>
 
-    <div class="btn-options">
-        <a href="debitos.php"><button>Voltar ao Gerenciamento de Dívidas</button></a>
-    </div>
-
-    <h2>Adicionar ou Atualizar Dívida</h2>
     <form action="" method="post">
-        <label for="cliente_id">Cliente:</label>
-        <select name="cliente_id" required>
-            <option value="">Selecione um cliente</option>
-            <?php while ($cliente = $clientes_result->fetch_assoc()): ?>
-                <option value="<?= $cliente['cliente_id']; ?>"><?= $cliente['nome']; ?></option>
-            <?php endwhile; ?>
-        </select>
-        
-        <label for="valor_divida">Valor da Dívida:</label>
-        <input type="number" name="valor_divida" step="0.01" min="0.01" required>
+        <div class="input-form">
+            <label for="cliente_id">Cliente:</label>
+            <select name="cliente_id" required>
+                <option value="">Selecione um cliente</option>
+                <?php while ($cliente = $clientes_result->fetch_assoc()): ?>
+                    <option value="<?= $cliente['cliente_id']; ?>"><?= $cliente['nome']; ?></option>
+                <?php endwhile; ?>
+            </select>
+            
+            <label for="valor_divida">Valor da Dívida:</label>
+            <input type="number" name="valor_divida" step="0.01" min="0.01" required>
+        </div>
 
-        <button type="submit" name="add_divida">Adicionar ou Atualizar Dívida</button>
+        <div class="submit"><button type="submit" name="add_divida">Adicionar ou Atualizar Dívida</button></div>
     </form>
+
+    <div class="btn-back">
+        <a href="dividas.php"><button>Voltar ao Gerenciamento de Dívidas</button></a>
+    </div>
 
 </body>
 </html>

@@ -97,7 +97,7 @@ $result = $conexao->query($sql);
                 <th>Quantidade</th>
                 <th>Fornecedor</th>
                 <th>Preço</th>
-                <th>modificar quantidade</th>
+                <th>Modificar quantidade</th>
                 <th>Modificar preço</th>
             </tr>
         </thead>

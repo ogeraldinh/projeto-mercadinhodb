@@ -95,7 +95,7 @@ $result_clientes = $conexao->query($sql_clientes);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/vendas.css">
+    <link rel="stylesheet" href="assets/css/cadastro.css">
     <title>Registrar Venda</title>
 </head>
 <body>
@@ -108,57 +108,52 @@ $result_clientes = $conexao->query($sql_clientes);
         <p style="color: red;"><?= $message; ?></p>
     <?php endif; ?>
 
-    <form action="" method="POST">
-        <label for="id_produto">Produto:</label>
-        <select name="id_produto" required>
-            <option value="">Selecione um produto</option>
-            <?php 
-            while ($produto = mysqli_fetch_assoc($result_produtos)) {
-                echo "<option value='".$produto['id_produto']."'>".$produto['nome_produto']." - R$ ".$produto['preco']." (Estoque: ".$produto['estoque'].")</option>";
-            }
-            ?>
-        </select><br>
+    <form id="vendas" action="" method="POST">
+        <div class="input-form">
+            <label for="id_produto">Produto:</label>
+            <select name="id_produto" required>
+                <option value="">Selecione um produto</option>
+                <?php
+                while ($produto = mysqli_fetch_assoc($result_produtos)) {
+                    echo "<option value='".$produto['id_produto']."'>".$produto['nome_produto']." - R$ ".$produto['preco']." (Estoque: ".$produto['estoque'].")</option>";
+                }
+                ?>
+            </select><br>
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" name="quantidade" min="1" required><br>
+            <label for="forma_pagamento">Forma de Pagamento:</label>
+            <select name="forma_pagamento" required>
+                <option value="avista">À Vista</option>
+                <option value="aprazo">A Prazo</option>
+            </select><br>
+            <hr>
+            <!-- Seleção de cliente ou cadastro de novo cliente -->
+            <label for="cliente_id">Cliente:</label>
+            <select name="cliente_id" id="cliente_id" onchange="toggleNovoCliente(this)" required>
+                <option value="">Selecione um cliente</option>
+                <option value="novo_cliente">Novo Cliente</option>
+                <?php
+                while ($cliente = mysqli_fetch_assoc($result_clientes)) {
+                    echo "<option value='{$cliente['cliente_id']}'>{$cliente['nome']}</option>";
+                }
+                ?>
+            </select><br>
+            <!-- Formulário para cadastro de novo cliente -->
+            <div id="novo_cliente_form" style="display:none;">
+                <h3>Cadastro de Novo Cliente</h3>
+                <label for="nome_cliente">Nome:</label>
+                <input type="text" name="nome_cliente" id="nome_cliente" required><br>
+                <label for="cpf_cliente">CPF:</label>
+                <input type="text" name="cpf_cliente" id="cpf_cliente" maxlength="11" required><br>
+                <label for="telefone_cliente">Telefone:</label>
+                <input type="text" name="telefone_cliente" id="telefone_cliente" required><br>
+            </div><br>
+        </div>
 
-        <label for="quantidade">Quantidade:</label>
-        <input type="number" name="quantidade" min="1" required><br>
-
-        <label for="forma_pagamento">Forma de Pagamento:</label>
-        <select name="forma_pagamento" required>
-            <option value="avista">À Vista</option>
-            <option value="aprazo">A Prazo</option>
-        </select><br>
-
-        <hr>
-
-        <!-- Seleção de cliente ou cadastro de novo cliente -->
-        <label for="cliente_id">Cliente:</label>
-        <select name="cliente_id" id="cliente_id" onchange="toggleNovoCliente(this)" required>
-            <option value="">Selecione um cliente</option>
-            <option value="novo_cliente">Novo Cliente</option>
-            <?php 
-            while ($cliente = mysqli_fetch_assoc($result_clientes)) {
-                echo "<option value='{$cliente['cliente_id']}'>{$cliente['nome']}</option>";
-            }
-            ?>
-        </select><br>
-
-        <!-- Formulário para cadastro de novo cliente -->
-        <div id="novo_cliente_form" style="display:none;">
-            <h3>Cadastro de Novo Cliente</h3>
-            <label for="nome_cliente">Nome:</label>
-            <input type="text" name="nome_cliente" id="nome_cliente" required><br>
-
-            <label for="cpf_cliente">CPF:</label>
-            <input type="text" name="cpf_cliente" id="cpf_cliente" maxlength="11" required><br>
-
-            <label for="telefone_cliente">Telefone:</label>
-            <input type="text" name="telefone_cliente" id="telefone_cliente" required><br>
-        </div><br>
-
-        <button type="submit">Registrar Venda</button>
+        <div class="submit"><button type="submit">Registrar Venda</button></div>
     </form>
 
-    <a href="index.php"><button>Voltar ao Menu</button></a>
+    <div class="btn-back"><a href="index.php"><button>Voltar ao Menu</button></a></div>
 
     <script>
         function toggleNovoCliente(select) {

@@ -21,9 +21,9 @@
             <img src="assets/img/vendas.png" alt="">
             <p>Vendas</p>
         </a>
-        <a href="debitos.php">
-            <img src="assets/img/debitos.png" alt="">
-            <p>Débitos</p> 
+        <a href="dividas.php">
+            <img src="assets/img/dividas.png" alt="">
+            <p>Dívidas</p> 
         <a href="fornecedores.php">
             <img src="assets/img/fornecedores.png" alt="">
             <p>Fornecedores</p>
