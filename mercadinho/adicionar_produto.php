@@ -8,11 +8,11 @@
         exit();
     }
 
-    // Verificando se o formulário foi enviado
+    // Verificação se o formulário foi enviado
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Coletando os dados do formulário
         $nome_produto = $_POST['nome_produto'];
         $estoque = $_POST['estoque'];
+        $preco = $_POST['preco'];
         $nome_fornecedor = strtolower($_POST['nome_fornecedor']);  // Convertendo para caixa-baixa
 
         // Verificar se o fornecedor já existe na tabela fornecedor
@@ -24,18 +24,16 @@
         $stmt->fetch();
         $stmt->close();
 
-        // Se o fornecedor não existe, redireciona para a página de cadastro de fornecedor
+        // Redireciona para cadastro de fornecedor se ele não existe
         if (!$id_fornecedor) {
-            // Redireciona para a página de cadastro de fornecedor com o nome do fornecedor
             header('Location: cadastro_fornecedor.php?nome_fornecedor=' . urlencode($nome_fornecedor));
             exit();
         }
 
-        //Depois de obter o id_fornecedor, podemos adicionar o produto
-        if ($nome_produto && $estoque && $id_fornecedor) {
-            // Inserindo o produto no banco de dados
-            $stmt = $conexao->prepare('INSERT INTO produto (nome_produto, estoque, id_fornecedor) VALUES (?, ?, ?)');
-            $stmt->bind_param('sii', $nome_produto, $estoque, $id_fornecedor);
+        // Inserção do produto com o preço e fornecedor
+        if ($nome_produto && $estoque && $preco && $id_fornecedor) {
+            $stmt = $conexao->prepare('INSERT INTO produto (nome_produto, estoque, preco, id_fornecedor) VALUES (?, ?, ?, ?)');
+            $stmt->bind_param('sidi', $nome_produto, $estoque, $preco, $id_fornecedor);
 
             // Executa a consulta e verifica se a inserção foi bem-sucedida
             if ($stmt->execute()) {
@@ -44,7 +42,6 @@
                 $message = "Erro ao cadastrar o produto: " . $stmt->error;
             }
 
-            // Fecha a declaração
             $stmt->close();
         } else {
             $message = "Por favor, preencha todos os campos!";
@@ -74,6 +71,9 @@
             <label for="estoque">Quantidade do Produto:</label>
             <input type="number" id="estoque" name="estoque" required min="1">
 
+            <label for="preco">Preço do Produto:</label>
+            <input type="number" id="preco" name="preco" step="0.01" required>
+
             <label for="nome_fornecedor">Fornecedor:</label>
             <input type="text" id="nome_fornecedor" name="nome_fornecedor" required>
         </div>
@@ -89,6 +89,6 @@
         <?php endif; ?>
     </form>
 
-    <a href="estoque.php" class="btn-back"><button >Voltar ao estoque</button></a>
+    <a href="estoque.php" class="btn-back"><button>Voltar ao estoque</button></a>
 </body>
 </html>
