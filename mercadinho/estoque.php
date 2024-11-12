@@ -14,7 +14,7 @@
     $sql = "SELECT produto.id_produto, produto.nome_produto, produto.estoque, produto.preco, fornecedor.nome AS fornecedor_nome 
             FROM produto
             JOIN fornecedor ON produto.id_fornecedor = fornecedor.id_fornecedor
-            ORDER BY produto.nome_produto";
+            ORDER BY produto.id_produto";
     $result = $conexao->query($sql);
 ?>
 
@@ -64,9 +64,9 @@
                     echo "<td>".$user_data['nome_produto']."</td>";
                     echo "<td>".$user_data['estoque']."</td>";
                     echo "<td>".$user_data['fornecedor_nome']."</td>";  // Exibe o nome do fornecedor
-                    echo "<td>R$ ".number_format($user_data['preco'], 2, ',', '.')."</td>"; // Exibe o preço formatado
+                    echo "<td>R$ ".number_format($user_data['preco'], 2, ',', '.')."</td>"; //Exibe o preço formatado
                     echo "<td>
-                        <a href='editar_estoque.php?id=".$user_data['id_produto']."'><button>Editar</button></a>
+                        <a href='editar_estoque.php?id=".$user_data['id_produto']."'>Editar</a>
                         <a href='#' onclick='confirmarExclusao(".$user_data['id_produto'].")' style='color: red;'>Excluir</a>
                     </td>";
                     echo "</tr>";
