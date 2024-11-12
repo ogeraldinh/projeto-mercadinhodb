@@ -60,8 +60,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Fornecedor</title>
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/estoque.css">
+    <title>Editar Fornecedor</title>
 </head>
 <body>
     <h1>Editar Fornecedor</h1>
