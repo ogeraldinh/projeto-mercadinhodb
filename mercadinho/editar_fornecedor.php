@@ -61,24 +61,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/estoque.css">
+    <link rel="stylesheet" href="assets/css/cadastro.css">
     <title>Editar Fornecedor</title>
 </head>
 <body>
     <h1>Editar Fornecedor</h1>
-    <a href="fornecedores.php"><button>Voltar à lista de fornecedores</button></a>
+    
 
     <form action="" method="post">
-        <label for="nome_fornecedor">Nome:</label>
-        <input type="text" id="nome_fornecedor" name="nome_fornecedor" value="<?= $fornecedor['nome']; ?>" required>
+        <div class="input-form">
+            <label for="nome_fornecedor">Nome:</label>
+            <input type="text" id="nome_fornecedor" name="nome_fornecedor" value="<?= $fornecedor['nome']; ?>" required>
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" value="<?= $fornecedor['endereco']; ?>" required>
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" value="<?= $fornecedor['cnpj']; ?>" required>
+        </div>
 
-        <label for="endereco">Endereço:</label>
-        <input type="text" id="endereco" name="endereco" value="<?= $fornecedor['endereco']; ?>" required>
-
-        <label for="cnpj">CNPJ:</label>
-        <input type="text" id="cnpj" name="cnpj" value="<?= $fornecedor['cnpj']; ?>" required>
-
-        <button type="submit">Atualizar</button>
+        <div class="submit"><button type="submit">Atualizar</button></div>
     </form>
 
     <?php if (isset($message)): ?>
@@ -86,5 +86,7 @@
             <?= $message; ?>
         </div>
     <?php endif; ?>
+
+    <div class="btn-back"><a href="fornecedores.php"><button>Voltar à lista de fornecedores</button></a></div>
 </body>
 </html>
