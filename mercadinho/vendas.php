@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nome_cliente = $_POST['nome_cliente'];
         $cpf_cliente = $_POST['cpf_cliente'];
         $telefone_cliente = $_POST['telefone_cliente'];
-        
+
         // Validando o CPF (exemplo simples)
         if (strlen($cpf_cliente) != 11) {
             $message = "O CPF deve ter 11 dígitos.";
@@ -142,15 +142,12 @@ $result_clientes = $conexao->query($sql_clientes);
             <!-- Formulário para cadastro de novo cliente -->
             <div id="novo_cliente_form" style="display:none;">
                 <h3>Cadastro de Novo Cliente</h3>
-
                 <label for="nome_cliente">Nome:</label>
                 <input type="text" name="nome_cliente" id="nome_cliente" required><br>
-
                 <label for="cpf_cliente">CPF:</label>
-                <input type="text" name="cpf_cliente" id="cpf_cliente" maxlength="14" oninput="mascaraCPF(this)" required><br>
-
+                <input type="text" name="cpf_cliente" id="cpf_cliente" maxlength="11" required><br>
                 <label for="telefone_cliente">Telefone:</label>
-                <input type="text" name="telefone_cliente" id="telefone_cliente" maxlength="16" oninput="mascaraTelefone(this)" required><br>
+                <input type="text" name="telefone_cliente" id="telefone_cliente" required><br>
             </div><br>
         </div>
 
@@ -159,6 +156,15 @@ $result_clientes = $conexao->query($sql_clientes);
 
     <div class="btn-back"><a href="index.php"><button>Voltar ao Menu</button></a></div>
 
-    <script src="assets/js/vendas.js"></script>
+    <script>
+        function toggleNovoCliente(select) {
+            var form = document.getElementById('novo_cliente_form');
+            if (select.value === 'novo_cliente') {
+                form.style.display = 'block';
+            } else {
+                form.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
