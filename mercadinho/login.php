@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             <label for="password">Informe a senha:</label>
             <input type="password" id="password" name="pass" required>
         </div>
-        <input type="submit" id="submit" value="Entrar">
+        <div class="submit"><input type="submit" id="submit" value="Entrar"></div>
 
         <span>Não possui cadastro? <a href="cadastro.php">Cadastrar</a></span>
         <!-- Exibe a mensagem de erro caso o login falhe -->

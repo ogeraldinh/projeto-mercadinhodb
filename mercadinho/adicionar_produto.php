@@ -54,7 +54,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/cadastro.css">
     <title>Adicionar Produto</title>
 </head>
@@ -64,7 +63,7 @@
         <h1>Adicionar Produto</h1>
     </nav>
 
-    <form action="" method="post">
+    <form id="ad-produto" action="" method="post">
         <div class="input-form">
             <label for="nome_produto">Nome do Produto:</label>
             <input type="text" id="nome_produto" name="nome_produto" required>

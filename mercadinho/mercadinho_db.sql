@@ -1,49 +1,51 @@
 CREATE DATABASE mercado;
-USE mercado;
 
-CREATE TABLE cliente(
-	cliente_id INT PRIMARY KEY AUTO_INCREMENT,
-	cpf VARCHAR(11) UNIQUE NOT NULL,
-    nome VARCHAR(200),
-    telefone VARCHAR(11)
+USE mercado;
+create table cliente(
+	cliente_id int primary key auto_increment,
+	cpf varchar (11) unique not null,
+    	nome varchar(200),
+    	telefone varchar(11)
     
 ); 
-CREATE TABLE divida(
-	id_divida INT PRIMARY KEY AUTO_INCREMENT,
-   	cliente_id INT,
-    valor_divida DECIMAL(20,2),
-	FOREIGN KEY (cliente_id) REFERENCES cliente(cliente_id)
+create table divida(
+	id_divida int primary key auto_increment,
+   	cliente_id int,
+    	valor_divida decimal(20,2),
+	foreign key (cliente_id) references cliente(cliente_id)
 );
-CREATE TABLE compra (
-	id_compra INT PRIMARY KEY AUTO_INCREMENT,
-   	valor_compra DECIMAL(5,2),
-   	valor_pago DECIMAL(7,2),
-   	data_compra DATE,
-   	cliente_id INT,
-   	FOREIGN KEY (cliente_id) REFERENCES cliente(cliente_id)
-);
-
-CREATE TABLE fornecedor(
-	id_fornecedor INT PRIMARY KEY AUTO_INCREMENT,
- 	nome VARCHAR(200),
-  	endereco VARCHAR(500),
-    cnpj VARCHAR(18) UNIQUE
+create table compra (
+	 id_compra int primary key auto_increment,
+   	 valor_compra decimal(5,2),
+   	 valor_pago decimal(7,2),
+   	 data_compra date,
+   	 cliente_id int,
+   	 foreign key (cliente_id) references cliente(cliente_id)
 );
 
-CREATE TABLE produto(
-    id_produto INT PRIMARY KEY AUTO_INCREMENT,
-  	nome_produto VARCHAR(150),
-  	estoque INT,
-  	preco DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
-  	id_fornecedor INT,
-   	FOREIGN KEY (id_fornecedor) REFERENCES fornecedor(id_fornecedor)
+create table produto(
+	id_produto int primary key auto_increment,
+  	  nome_produto varchar(150),
+  	  estoque int,
+  	  preco DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
+  	  id_fornecedor int,
+   	 foreign key (id_fornecedor) references fornecedor(id_fornecedor)
     
 );
 
-CREATE TABLE usuario(
-	id_usuario INT PRIMARY KEY AUTO_INCREMENT,
-   	nome_usuario VARCHAR(100) NOT NULL,
-    senha_usuario VARCHAR(100) NOT NULL,
-   	email_usuario VARCHAR(100) NOT NULL UNIQUE
+create table fornecedor(
+	id_fornecedor int primary key auto_increment,
+ 	nome varchar(200),
+  	endereco varchar(500),
+    	cnpj varchar (18) unique
+);
+
+
+create table usuario(
+	id_usuario int primary key auto_increment,
+   	nome_usuario varchar(100) not null,
+    	senha_usuario varchar(100) not null,
+   	email_usuario varchar(100) not null unique
     
 );
+
